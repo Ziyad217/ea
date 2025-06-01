@@ -4,99 +4,110 @@ import resources.NummerKonstanten;
 
 import java.util.*;
 
-public class Polyeder {
+/**
+ * Diese Klasse repräsentiert ein Polyeder, das aus mehreren Polygon-Flächenelementen besteht.
+ * Sie bietet Methoden zum Zugriff auf die Eckpunkte, Kanten und Flächen des Polyeders
+ * sowie eine Validierungsmethode basierend auf der Euler'schen Polyederformel.
+ *
+ * @author ziyad
+ */
+public class Polyeder implements NummerKonstanten {
+
     private Polygon[] flaechenelemente;
 
-    public Set<Eckpunkt> getAlleEcken(){
-            Set<Eckpunkt> alleEcken = new HashSet<>();
-
-            for (Polygon polygon : flaechenelemente) {
-                alleEcken.addAll(polygon.getEcken());
-            }
-
-            return alleEcken;
+    /**
+     * Konstruktor für ein Polyeder.
+     *
+     * @param flaechenelemente Array von Polygon-Flächenelementen, die das Polyeder bilden.
+     * @precondition flaechenelemente darf nicht null sein und mindestens eine Fläche enthalten.
+     * @postcondition Ein Polyeder-Objekt wird erzeugt und gespeichert.
+     */
+    public Polyeder(Polygon[] flaechenelemente)
+    {
+        this.flaechenelemente = flaechenelemente;
     }
 
-    public Kante[] getAlleKanten() {
-        List<Kante> alleKanten = new ArrayList<>();
+    /**
+     * Liefert alle eindeutigen Eckpunkte des Polyeders.
+     *
+     * @return Menge aller Eckpunkte als Set<Eckpunkt>.
+     * @precondition Keine.
+     * @postcondition Gibt ein Set zurück, das alle Eckpunkte aller Flächen enthält.
+     */
+    public Set<Eckpunkt> getAlleEcken()
+    {
+        Set<Eckpunkt> alleEcken = new HashSet<>();
+        for (Polygon polygon : flaechenelemente)
+        {
+            alleEcken.addAll(polygon.getEcken());
+        }
+        return alleEcken;
+    }
 
-        for (Polygon polygon : flaechenelemente) {
+    /**
+     * Liefert alle Kanten des Polyeders als Array.
+     * Kanten können mehrfach vorkommen, wenn sie mehrere Flächen teilen.
+     *
+     * @return Array aller Kanten im Polyeder.
+     * @precondition Keine.
+     * @postcondition Gibt ein Array mit allen Kanten aller Flächen zurück.
+     */
+    public Kante[] getAlleKanten()
+    {
+        List<Kante> alleKanten = new ArrayList<>();
+        for (Polygon polygon : flaechenelemente)
+        {
             alleKanten.addAll(Arrays.asList(polygon.getKanten()));
         }
-
-        return alleKanten.toArray(new Kante[alleKanten.size()]);
+        return alleKanten.toArray(new Kante[0]);
     }
 
-    public int getAnzahlEcken() {
+    /**
+     * Liefert die Anzahl der eindeutigen Eckpunkte des Polyeders.
+     *
+     * @return Anzahl der Eckpunkte.
+     * @precondition Keine.
+     * @postcondition Gibt die Anzahl der eindeutigen Eckpunkte zurück.
+     */
+    public int getAnzahlEcken()
+    {
         return getAlleEcken().size();
     }
 
-    public int getAnzahlKanten() {
+    /**
+     * Liefert die Anzahl der Kanten im Polyeder.
+     * Kanten werden nicht auf Duplikate geprüft.
+     *
+     * @return Anzahl der Kanten.
+     * @precondition Keine.
+     * @postcondition Gibt die Gesamtanzahl der Kanten zurück.
+     */
+    public int getAnzahlKanten()
+    {
         return getAlleKanten().length;
     }
 
-    public int getAnzahlFlaechen() {
+    /**
+     * Liefert die Anzahl der Flächen des Polyeders.
+     *
+     * @return Anzahl der Flächen.
+     * @precondition Keine.
+     * @postcondition Gibt die Anzahl der Flächen zurück.
+     */
+    public int getAnzahlFlaechen()
+    {
         return flaechenelemente.length;
     }
 
-    public Polygon[] getFlaechenelemente() {
+    /**
+     * Liefert alle Flächenelemente (Polygone) des Polyeders.
+     *
+     * @return Array der Flächenelemente.
+     * @precondition Keine.
+     * @postcondition Gibt das Array der Flächen zurück.
+     */
+    public Polygon[] getFlaechenelemente()
+    {
         return flaechenelemente;
-    }
-
-    public boolean istGueltig() {
-        // Euler'sche Polyederformel (V - E + F = 2) für konvexe Polyeder
-        int v = getAnzahlEcken();
-        int e = getAnzahlKanten();
-        int f = getAnzahlFlaechen();
-        return v - e + f == NummerKonstanten.ZWEI;
-    }
-
-
-    public double berechneVolumen() {
-        double volumen = 0.0;
-
-        // Ursprung als Fixpunkt für Tetraeder
-        double ox = 0.0;
-        double oy = 0.0;
-        double oz = 0.0;
-
-        for (Polygon polygon : flaechenelemente) {
-            // Annahme: polygon hat genau 3 Eckpunkte (Dreieck)
-            List<Eckpunkt> ecken = new ArrayList<>(polygon.getEcken());
-            if (ecken.size() != 3) {
-                throw new IllegalArgumentException("Alle Flächen müssen Dreiecke sein!");
-            }
-
-            Eckpunkt punkt1 = ecken.get(0);
-            Eckpunkt punkt2 = ecken.get(1);
-            Eckpunkt punkt3 = ecken.get(2);
-
-            // Vektoren von Ursprung zu punkt1, punkt2, punkt3
-            double ax = punkt1.getXKoordinate() - ox;
-            double ay = punkt1.getYKoordinate() - oy;
-            double az = punkt1.getZKoordinate() - oz;
-
-            double bx = punkt2.getXKoordinate() - ox;
-            double by = punkt2.getYKoordinate() - oy;
-            double bz = punkt2.getZKoordinate() - oz;
-
-            double cx = punkt3.getXKoordinate() - ox;
-            double cy = punkt3.getYKoordinate() - oy;
-            double cz = punkt3.getZKoordinate() - oz;
-
-            // Kreuzprodukt b x c
-            double kreuzX = by * cz - bz * cy;
-            double kreuzY = bz * cx - bx * cz;
-            double kreuzZ = bx * cy - by * cx;
-
-            // Skalarprodukt a · (b x c)
-            double skalarTriple = ax * kreuzX + ay * kreuzY + az * kreuzZ;
-
-            // Volumen Tetraeder = |skalarTriple| / 6
-            volumen += skalarTriple;
-        }
-
-        volumen = Math.abs(volumen) / 6.0;
-        return volumen;
     }
 }

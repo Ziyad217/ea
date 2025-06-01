@@ -1,36 +1,48 @@
 package model;
 
+/**
+ * Repräsentiert einen Vektor im 3D-Raum mit x-, y- und z-Komponenten.
+ *
+ * @author ziyad
+ */
 public class Vektor {
-private float XKomponente;
-private float YKomponente;
-private float ZKomponente;
+    private float XKomponente;
+    private float YKomponente;
+    private float ZKomponente;
 
-    public Vektor(float XKomponente, float YKomponente, float ZKomponente) {
+    /**
+     * Konstruktor zum Erzeugen eines Vektors mit den angegebenen Komponenten.
+     *
+     * @param XKomponente x-Komponente des Vektors
+     * @param YKomponente y-Komponente des Vektors
+     * @param ZKomponente z-Komponente des Vektors
+     */
+    public Vektor(float XKomponente, float YKomponente, float ZKomponente)
+    {
         this.XKomponente = XKomponente;
         this.YKomponente = YKomponente;
         this.ZKomponente = ZKomponente;
     }
 
-    public float getXKomponente() {
+    public float getXKomponente()
+    {
         return XKomponente;
     }
 
-    public float getYKomponente() {
+    public float getYKomponente()
+    {
         return YKomponente;
     }
 
-    public float getZKomponente() {
+    public float getZKomponente()
+    {
         return ZKomponente;
     }
 
-    public double getLaenge() {
+    public double getLaenge()
+    {
         return Math.sqrt(getXKomponente() * getXKomponente() +
                 getYKomponente() * getYKomponente() + getZKomponente() * getZKomponente());
     }
-    public Vektor erzeugeVektor(Eckpunkt eckpunkt1, Eckpunkt eckpunkt2){
-        float x = eckpunkt1.getXKoordinate() - eckpunkt2.getXKoordinate();
-        float y = eckpunkt1.getYKoordinate() - eckpunkt2.getYKoordinate();
-        float z = eckpunkt1.getZKoordinate() - eckpunkt2.getZKoordinate();
-        return new Vektor(x, y, z);
-    }
+
 }

@@ -1,11 +1,23 @@
 package model;
 
-public class Eckpunkt {
-    private float XKoordinate;
-    private float YKoordinate;
-    private float ZKoordinate;
+/**
+ * Repräsentiert einen Punkt im 3D-Raum mit x-, y- und z-Koordinate.
+ * @author ziyad
+ */
+public class Eckpunkt
+{
+    private final float XKoordinate;
+    private final float YKoordinate;
+    private final float ZKoordinate;
 
-    public Eckpunkt(float XKoordinate, float YKoordinate, float ZKoordinate) {
+    /**
+     * Konstruktor zum Erzeugen eines Eckpunkts mit den angegebenen Koordinaten.
+     * @param XKoordinate x-Koordinate des Punktes
+     * @param YKoordinate y-Koordinate des Punktes
+     * @param ZKoordinate z-Koordinate des Punktes
+     */
+    public Eckpunkt(float XKoordinate, float YKoordinate, float ZKoordinate)
+    {
         this.XKoordinate = XKoordinate;
         this.YKoordinate = YKoordinate;
         this.ZKoordinate = ZKoordinate;
@@ -21,12 +33,5 @@ public class Eckpunkt {
 
     public float getZKoordinate() {
         return ZKoordinate;
-    }
-
-    public Vektor subtrahiere(Eckpunkt eckpunkt) {
-        float x = this.getXKoordinate() - eckpunkt.getXKoordinate();
-        float y = this.getYKoordinate() - eckpunkt.getYKoordinate();
-        float z = this.getZKoordinate() - eckpunkt.getZKoordinate();
-        return new Vektor(x, y, z);
     }
 }
