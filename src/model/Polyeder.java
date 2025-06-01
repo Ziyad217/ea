@@ -27,13 +27,6 @@ public class Polyeder implements NummerKonstanten {
         this.flaechenelemente = flaechenelemente;
     }
 
-    /**
-     * Liefert alle eindeutigen Eckpunkte des Polyeders.
-     *
-     * @return Menge aller Eckpunkte als Set<Eckpunkt>.
-     * @precondition Keine.
-     * @postcondition Gibt ein Set zurück, das alle Eckpunkte aller Flächen enthält.
-     */
     public Set<Eckpunkt> getAlleEcken()
     {
         Set<Eckpunkt> alleEcken = new HashSet<>();
@@ -44,14 +37,7 @@ public class Polyeder implements NummerKonstanten {
         return alleEcken;
     }
 
-    /**
-     * Liefert alle Kanten des Polyeders als Array.
-     * Kanten können mehrfach vorkommen, wenn sie mehrere Flächen teilen.
-     *
-     * @return Array aller Kanten im Polyeder.
-     * @precondition Keine.
-     * @postcondition Gibt ein Array mit allen Kanten aller Flächen zurück.
-     */
+
     public Kante[] getAlleKanten()
     {
         List<Kante> alleKanten = new ArrayList<>();
@@ -62,50 +48,24 @@ public class Polyeder implements NummerKonstanten {
         return alleKanten.toArray(new Kante[0]);
     }
 
-    /**
-     * Liefert die Anzahl der eindeutigen Eckpunkte des Polyeders.
-     *
-     * @return Anzahl der Eckpunkte.
-     * @precondition Keine.
-     * @postcondition Gibt die Anzahl der eindeutigen Eckpunkte zurück.
-     */
+
     public int getAnzahlEcken()
     {
         return getAlleEcken().size();
     }
 
-    /**
-     * Liefert die Anzahl der Kanten im Polyeder.
-     * Kanten werden nicht auf Duplikate geprüft.
-     *
-     * @return Anzahl der Kanten.
-     * @precondition Keine.
-     * @postcondition Gibt die Gesamtanzahl der Kanten zurück.
-     */
     public int getAnzahlKanten()
     {
         return getAlleKanten().length;
     }
 
-    /**
-     * Liefert die Anzahl der Flächen des Polyeders.
-     *
-     * @return Anzahl der Flächen.
-     * @precondition Keine.
-     * @postcondition Gibt die Anzahl der Flächen zurück.
-     */
+
     public int getAnzahlFlaechen()
     {
         return flaechenelemente.length;
     }
 
-    /**
-     * Liefert alle Flächenelemente (Polygone) des Polyeders.
-     *
-     * @return Array der Flächenelemente.
-     * @precondition Keine.
-     * @postcondition Gibt das Array der Flächen zurück.
-     */
+
     public Polygon[] getFlaechenelemente()
     {
         return flaechenelemente;
