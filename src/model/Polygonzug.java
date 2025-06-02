@@ -10,7 +10,8 @@ import java.util.Set;
  *
  * @author ziyad
  */
-public class Polygonzug implements NummerKonstanten {
+public class Polygonzug implements NummerKonstanten
+{
 
     private Kante[] kante;
     private Set<Eckpunkt> ecken;

@@ -5,7 +5,8 @@ package model;
  *
  * @author ziyad
  */
-public class Vektor {
+public class Vektor
+{
     private float XKomponente;
     private float YKomponente;
     private float ZKomponente;

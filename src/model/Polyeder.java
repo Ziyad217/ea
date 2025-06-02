@@ -11,7 +11,8 @@ import java.util.*;
  *
  * @author ziyad
  */
-public class Polyeder implements NummerKonstanten {
+public class Polyeder implements NummerKonstanten
+{
 
     private Polygon[] flaechenelemente;
 

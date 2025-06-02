@@ -9,7 +9,8 @@ import java.io.InputStream;
  * BinaerReader liest binäre STL-Dateien und implementiert das STLReader-Interface.
  * Beim Erstellen prüft er, ob es sich um eine gültige STL-Datei handelt.
  */
-public class BinaerReader extends DataInputStream implements STLReader {
+public class BinaerReader extends DataInputStream implements STLReader
+{
 
     /**
      * Konstruktor für BinaerReader.
@@ -17,7 +18,8 @@ public class BinaerReader extends DataInputStream implements STLReader {
      * @param in InputStream der einzulesenden Datei.
      * @throws IsNotASTLFile wenn die Datei keine gültige STL-Datei ist.
      */
-    public BinaerReader(InputStream in) throws IsNotASTLFile {
+    public BinaerReader(InputStream in) throws IsNotASTLFile
+    {
         super(in);
         if (!pruefeAufSTL(null)) // TODO: Hier sollte eigentlich ein Dateiname geprüft werden.
             throw new IsNotASTLFile();
@@ -30,7 +32,8 @@ public class BinaerReader extends DataInputStream implements STLReader {
      * @return ein Array mit Kopf-Daten oder null.
      */
     @Override
-    public <T> T[] leseKopfEin() {
+    public <T> T[] leseKopfEin()
+    {
         return null;
     }
 
@@ -40,7 +43,8 @@ public class BinaerReader extends DataInputStream implements STLReader {
      * @return die Anzahl der Dreiecke.
      */
     @Override
-    public int leseAnzahlDreieckeEin() {
+    public int leseAnzahlDreieckeEin()
+    {
         return 0;
     }
 
@@ -50,7 +54,8 @@ public class BinaerReader extends DataInputStream implements STLReader {
      * @return ein Array mit Float-Werten der Körper-Daten oder null.
      */
     @Override
-    public Float[] leseKoerperEin() {
+    public Float[] leseKoerperEin()
+    {
         return null;
     }
 }

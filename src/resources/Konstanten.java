@@ -1,5 +1,6 @@
 package resources;
 
-public interface Konstanten {
+public interface Konstanten
+{
 String DATEIENDE = ".stl";
 }

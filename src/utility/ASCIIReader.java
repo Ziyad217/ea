@@ -10,7 +10,8 @@ import java.io.Reader;
  * ASCIIReader liest ASCII-STL-Dateien ein und implementiert das STLReader-Interface.
  * Es prüft beim Erstellen, ob die Datei eine gültige STL-Datei ist.
  */
-public class ASCIIReader extends FileReader implements STLReader {
+public class ASCIIReader extends FileReader implements STLReader
+{
 
     /**
      * Konstruktor für ASCIIReader.
@@ -20,7 +21,8 @@ public class ASCIIReader extends FileReader implements STLReader {
      * @throws FileNotFoundException Wenn die Datei nicht gefunden wird.
      * @throws IsNotASTLFile Wenn die Datei keine STL-Datei ist.
      */
-    public ASCIIReader(String fileName) throws FileNotFoundException, IsNotASTLFile {
+    public ASCIIReader(String fileName) throws FileNotFoundException, IsNotASTLFile
+    {
         super(fileName);
         if (!pruefeAufSTL(fileName))
             throw new IsNotASTLFile();
@@ -33,7 +35,8 @@ public class ASCIIReader extends FileReader implements STLReader {
      * @return Ein Array mit den Kopf-Daten oder null.
      */
     @Override
-    public <T> T[] leseKopfEin() {
+    public <T> T[] leseKopfEin()
+    {
         return null;
     }
 
@@ -43,7 +46,8 @@ public class ASCIIReader extends FileReader implements STLReader {
      * @return Die Anzahl der Dreiecke.
      */
     @Override
-    public int leseAnzahlDreieckeEin() {
+    public int leseAnzahlDreieckeEin()
+    {
         return 0;
     }
 
@@ -54,7 +58,8 @@ public class ASCIIReader extends FileReader implements STLReader {
      * @return Ein Array mit den Körperdaten oder null.
      */
     @Override
-    public <T> T[] leseKoerperEin() {
+    public <T> T[] leseKoerperEin()
+    {
         return null;
     }
 }

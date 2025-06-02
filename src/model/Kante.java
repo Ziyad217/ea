@@ -8,7 +8,8 @@ import model.Vektor;
  * Eine Kante ist definiert durch zwei Eckpunkte A und B.
  * @author ziyad
  */
-public class Kante {
+public class Kante
+{
 
     private final Eckpunkt eckpunktA;
     private final Eckpunkt eckpunktB;
@@ -19,7 +20,8 @@ public class Kante {
      * @param eckpunktB Endpunkt der Kante
      * @throws IllegalArgumentException wenn einer der Eckpunkte null ist
      */
-    public Kante(Eckpunkt eckpunktA, Eckpunkt eckpunktB) {
+    public Kante(Eckpunkt eckpunktA, Eckpunkt eckpunktB)
+    {
         this.eckpunktA = eckpunktA;
         this.eckpunktB = eckpunktB;
     }

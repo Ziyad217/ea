@@ -11,7 +11,8 @@ import java.util.Set;
  *
  * @author ziyad
  */
-public abstract class Polygon extends Polygonzug implements NummerKonstanten {
+public abstract class Polygon extends Polygonzug implements NummerKonstanten
+{
 
     /**
      * Konstruktor für Polygon.

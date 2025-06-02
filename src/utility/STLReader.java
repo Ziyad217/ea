@@ -9,7 +9,8 @@ import java.io.FileNotFoundException;
  * Interface für Leser von STL-Dateien (ASCII oder Binär).
  * Definiert Methoden zum Einlesen von Kopf, Anzahl der Dreiecke und Körperdaten.
  */
-public interface STLReader {
+public interface STLReader
+{
 
     /**
      * Prüft, ob der Dateiname auf die gültige STL-Endung endet.
@@ -17,7 +18,8 @@ public interface STLReader {
      * @param fileName der Name der Datei.
      * @return true, wenn die Datei die gültige STL-Endung hat, sonst false.
      */
-    default boolean pruefeAufSTL(String fileName) {
+    default boolean pruefeAufSTL(String fileName)
+    {
         return fileName.endsWith(Konstanten.DATEIENDE);
     }
 

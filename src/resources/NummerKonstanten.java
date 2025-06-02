@@ -1,6 +1,7 @@
 package resources;
 
-public interface NummerKonstanten {
+public interface NummerKonstanten
+{
 
     int NULL = 0;
     int EINS = 1;

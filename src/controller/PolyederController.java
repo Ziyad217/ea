@@ -27,7 +27,8 @@ public class PolyederController
     {
         double oberflaeche = NummerKonstanten.DOUBLE_NULL;
 
-        for (Polygon polygon : polyeder.getFlaechenelemente()) {
+        for (Polygon polygon : polyeder.getFlaechenelemente())
+        {
             oberflaeche += polygon.berechneFlaeche();
         }
         return oberflaeche;
