@@ -7,6 +7,7 @@ public interface NummerKonstanten
     int EINS = 1;
     int ZWEI = 2;
     int DREI = 3;
+    int SECHS = 6;
 
     double DOUBLE_NULL = 0.0;
     double DOUBLE_EINHALB = 0.5;

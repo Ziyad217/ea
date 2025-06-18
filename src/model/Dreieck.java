@@ -14,9 +14,22 @@ import java.util.Set;
 public class Dreieck extends Polygon
 {
 
+    private double flaeche;
+    private float umfang;
+
     public Dreieck(Kante[] kanten, Set<Eckpunkt> ecken) {
         super(kanten, ecken);
         this.ueberpruefeObDreieck();
+    }
+
+    @Override
+    public double getFlaeche() {
+        return flaeche;
+    }
+
+    @Override
+    public float getUmfang() {
+        return umfang;
     }
 
     /**
@@ -28,45 +41,8 @@ public class Dreieck extends Polygon
         return this.getKanten().length == NummerKonstanten.DREI;
     }
 
-    /**
-     * Berechnet die Fläche des Dreiecks mit Hilfe des Kreuzprodukts.
-     * @return die Fläche als double
-     */
     @Override
-    public double berechneFlaeche()
-    {
-        VektorController vektorController = new VektorController();
-
-        Eckpunkt a = getKanten()[NummerKonstanten.NULL].getEckpunktA();
-        Eckpunkt b = getKanten()[NummerKonstanten.NULL].getEckpunktB();
-        Eckpunkt c;
-        if (getKanten()[NummerKonstanten.EINS].getEckpunktA() != a &&
-                getKanten()[NummerKonstanten.EINS].getEckpunktA() != b)
-        {
-            c = getKanten()[NummerKonstanten.EINS].getEckpunktA();
-        } else
-        {
-            c = getKanten()[NummerKonstanten.EINS].getEckpunktB();
-        }
-        Vektor ab = vektorController.erzeugeVektor(b, a);
-        Vektor ac = vektorController.erzeugeVektor(c, a);
-        Vektor kreuzprodukt = vektorController.berechneKreuzprodukt(ab, ac);
-        return NummerKonstanten.DOUBLE_EINHALB * kreuzprodukt.getLaenge();
-    }
-
-    /**
-     * Berechnet den Umfang des Dreiecks als Summe der Längen aller Kanten.
-     * @return Umfang als float
-     */
-    @Override
-    public float berechneUmfang()
-    {
-        float umfang = NummerKonstanten.FLOAT_NULL;
-
-        for (Kante kante : this.getKanten()) {
-            Vektor vektor = kante.gebeVektorZurueck();
-            umfang += vektor.getLaenge();
-        }
-        return umfang;
+    public int compareTo(Polygon o) {
+        return Double.compare(this.getFlaeche(), o.getFlaeche());
     }
 }

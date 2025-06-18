@@ -26,6 +26,15 @@ public class Polyeder implements NummerKonstanten
     public Polyeder(Polygon[] flaechenelemente)
     {
         this.flaechenelemente = flaechenelemente;
+        istGueltig(this);
+    }
+
+    private boolean istGueltig(Polyeder polyeder)
+    {
+        int v = polyeder.getAnzahlEcken();
+        int e = polyeder.getAnzahlKanten();
+        int f = polyeder.getAnzahlFlaechen();
+        return v - e + f == NummerKonstanten.ZWEI;
     }
 
     public Set<Eckpunkt> getAlleEcken()

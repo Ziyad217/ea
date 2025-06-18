@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author ziyad
  */
-public abstract class Polygon extends Polygonzug implements NummerKonstanten
+public abstract class Polygon extends Polygonzug implements NummerKonstanten, Comparable<Polygon>
 {
 
     /**
@@ -61,12 +61,12 @@ public abstract class Polygon extends Polygonzug implements NummerKonstanten
      *
      * @return Fläche des Polygons als double.
      */
-    public abstract double berechneFlaeche();
+    public abstract double getFlaeche();
 
     /**
      * Abstrakte Methode zur Berechnung des Umfangs des Polygons.
      *
      * @return Umfang des Polygons als float.
      */
-    public abstract float berechneUmfang();
+    public abstract float getUmfang();
 }

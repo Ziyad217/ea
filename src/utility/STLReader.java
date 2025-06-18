@@ -1,9 +1,8 @@
 package utility;
 
-import resources.IsNotASTLFile;
 import resources.Konstanten;
 
-import java.io.FileNotFoundException;
+import java.util.List;
 
 /**
  * Interface für Leser von STL-Dateien (ASCII oder Binär).
@@ -29,7 +28,7 @@ public interface STLReader
      * @param <T> der Typ der Kopf-Daten.
      * @return ein Array mit Kopf-Daten.
      */
-    <T> T[] leseKopfEin();
+    <T> String[] leseKopfEin();
 
     /**
      * Liest die Anzahl der Dreiecke aus der STL-Datei.
@@ -44,5 +43,5 @@ public interface STLReader
      * @param <T> der Typ der Körper-Daten.
      * @return ein Array mit Körper-Daten.
      */
-    <T> T[] leseKoerperEin();
+    <T> List<T> leseKoerperEin();
 }

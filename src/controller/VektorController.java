@@ -64,6 +64,22 @@ public class VektorController implements VektorMathematik
         return new Vektor(x, y, z);
     }
 
+    @Override
+    /**
+     * Berechnet das Skalarprodukt (auch: Punktprodukt) zweier Vektoren.
+     * @param v1 Der erste Vektor.
+     * @param v2 Der zweite Vektor.
+     * @return Der Skalarwert des Produkts von v1 und v2.
+     * @precondition v1 und v2 dürfen nicht null sein.
+     * @postcondition Ein float-Wert, der das Skalarprodukt darstellt, wird zurückgegeben.
+     */
+    public float berechneSkalarprodukt(Vektor v1, Vektor v2)
+    {
+        return v1.getXKomponente() * v2.getXKomponente()
+                + v1.getYKomponente() * v2.getYKomponente()
+                + v1.getZKomponente() * v2.getZKomponente();
+    }
+
     /**
      * Erzeugt einen Vektor aus zwei gegebenen Eckpunkten, indem die Differenz ihrer Koordinaten berechnet wird.
      * @param eckpunkt1 Der erste Eckpunkt.

@@ -37,4 +37,6 @@ public interface VektorMathematik
      * @return Ein neuer Vektor, der das Kreuzprodukt von v1 und v2 darstellt.
      */
     Vektor berechneKreuzprodukt(Vektor v1, Vektor v2);
+
+    float berechneSkalarprodukt(Vektor v1, Vektor v2);
 }
